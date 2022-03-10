@@ -5,6 +5,7 @@ import dates
 import Quotes
 import datetime
 import weather
+import pyjokes
 from keep_alive import keep_alive
 
 my_secret = os.environ['TOKEN']
@@ -77,6 +78,9 @@ class MyClient(discord.Client):
           await message.channel.send(output)
         if message.content.startswith('$weatherBlore'):
           output=weather.getWeatherOfBanglore()
+          await message.channel.send(output)
+        if message.content == "$joke$":
+          output = pyjokes.get_joke()
           await message.channel.send(output)
 
           
